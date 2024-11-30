@@ -1,0 +1,30 @@
+mat-sidenav-container{
+    width: 100%;
+    height: 100%;
+}
+mat-sidenav,mat-sidenav-content{
+    padding: 16px;
+}
+mat-sidenav{
+    width:200px;
+    background-color: rgb(13, 154, 164);
+}
+mat-list {
+    margin: 10px;
+  }
+  
+  mat-list-item {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  mat-sidenav[_ngcontent-ng-c1618810849], mat-sidenav-content[_ngcontent-ng-c1618810849] {
+    padding: 0px;
+}
+mat-sidenav{
+    padding: inherit;
+    background: rgb(39, 176, 186);
+}
+mat-sidenav-container{
+    height: 100vh;
+}

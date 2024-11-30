@@ -1,0 +1,82 @@
+$mainSideNavMinWidth: 200px;
+
+.collapse-button .mat-list-item-content {
+  justify-content: right;
+}
+
+.mat-toolbar {
+  min-height: 64px;
+  background-color: var(--mat-sidenav-container-background-color);
+  border-bottom: 1px solid var(--mat-sidenav-container-divider-color);
+
+  &.system-highlight {
+    background-color: #ffa500 !important;
+  }
+
+  .toolbar-logo {
+    width: auto; 
+    height: 50px; 
+  }
+}
+
+::ng-deep {
+  .dark-mode {
+    .toolbar-logo {
+      filter: invert(1);
+    }
+  }
+}
+
+.mat-sidenav {
+  /* Use min-width to prevent horizontal scrollbar which can appear, when "Settings" is the broadest text */
+  min-width: $mainSideNavMinWidth;
+
+  &.collapse {
+    min-width: inherit;
+    /* Hide text elements for small sidenav */
+    .collapseable {
+      display: none;
+    }
+  }
+  
+  a.active-link {
+    background: var(--mat-stepper-header-hover-state-layer-color);
+  }
+
+  ::ng-deep {
+    .mat-drawer-inner-container {
+      flex-direction: column !important;
+      display: flex !important;
+    }
+  }
+}
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+@include media-breakpoint-up(xs) {
+  .mat-sidenav {
+    min-width: inherit;
+
+    .collapseable {
+      display: none;
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .mat-sidenav {
+    min-width: $mainSideNavMinWidth;
+
+    .collapseable {
+      display: inherit;
+    }
+  }
+}
+  
+.mainheader{
+    border-bottom: 2px solid black;
+    background: rgb(39 176 186);
+    border-top: 2px solid black;
+}

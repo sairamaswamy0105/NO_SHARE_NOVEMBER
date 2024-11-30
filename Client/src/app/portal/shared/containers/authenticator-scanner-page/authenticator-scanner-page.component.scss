@@ -1,0 +1,152 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.card {
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 8px 8px 0 0;
+}
+
+.card-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.card-body {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 0 0 8px 8px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.left {
+  border-right: 1px solid #ddd;
+}
+
+.right {
+  padding-left: 20px;
+}
+
+.step {
+  margin-bottom: 20px;
+}
+
+.step img {
+  display: block;
+  margin: 10px auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+  }
+
+  .right {
+    padding-left: 0;
+  }
+}
+/* Styling for the form container */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto; /* Center the form horizontally */
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Label styling */
+.form-label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+/* Input styling */
+.form-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  transition: border-color 0.2s;
+}
+
+/* Input focus state */
+.form-input:focus {
+  border-color: #007bff; /* Blue border on focus */
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle shadow */
+}
+
+/* Button styling */
+.btn-submit {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff; /* Blue background */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Button hover and active states */
+.btn-submit:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.btn-submit:active {
+  transform: scale(0.98); /* Slightly smaller on click */
+}
+
+/* Error message styling */
+.error-message {
+  margin-top: 10px;
+  font-size: 14px;
+  color: red;
+  text-align: center;
+}

@@ -1,0 +1,9 @@
+<div class="d-flex align-items-center">
+    <mat-icon class="me-2">{{ isDarkMode ? 'bedtime' : 'wb_sunny' }}</mat-icon>
+    <mat-slide-toggle [checked]="isDarkMode" color="primary" (click)="toggleTheme()">
+    </mat-slide-toggle>
+  </div>
+
+  <!-- <button mat-icon-button (click)="toggleTheme()">
+    <mat-icon>{{ isDarkMode ? 'wb_sunny' : 'nights_stay' }}</mat-icon>
+  </button> -->

@@ -1,0 +1,63 @@
+@use '@angular/material' as mat;
+
+// You can also change this to your custom font
+// Simply add a font-face definition to the styles.scss file and add the fonts in the index.html 
+// or in the assets/fonts folder.
+$custom-font-family: Roboto, sans-serif;
+
+// Create custom palette on http://mcg.mbitson.com/
+$custom-palette: (
+  50 : #eff5f6,
+  100 : #d7e6e8,
+  200 : #bcd5d9,
+  300 : #a1c4c9,
+  400 : #8db7be,
+  500 : #79aab2,
+  600 : #71a3ab,
+  700 : #6699a2,
+  800 : #5c9099,
+  900 : #497f8a,
+  A100 : #e6fbff,
+  A200 : #b3f3ff,
+  A400 : #80eaff,
+  A700 : #67e6ff,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #000000,
+      400 : #000000,
+      500 : #000000,
+      600 : #000000,
+      700 : #000000,
+      800 : #000000,
+      900 : #ffffff,
+      A100 : #000000,
+      A200 : #000000,
+      A400 : #000000,
+      A700 : #000000,
+  )
+);
+
+$custom-typography: mat.m2-define-typography-config($font-family: $custom-font-family);
+$custom-primary-palette: mat.m2-define-palette($custom-palette);
+$custom-accent-palette: mat.m2-define-palette(mat.$m2-grey-palette);
+$custom-warn-palette: mat.m2-define-palette(mat.$m2-red-palette);
+$custom-light-theme: mat.m2-define-light-theme((
+  color: (
+    primary: $custom-primary-palette, 
+    accent: $custom-accent-palette, 
+    warn: $custom-warn-palette
+  ),
+  typography: $custom-typography
+  ));
+
+$custom-dark-theme: mat.m2-define-dark-theme((
+  color: (
+    primary: $custom-primary-palette, 
+    accent: $custom-accent-palette, 
+    warn: $custom-warn-palette
+  ),
+  typography: $custom-typography
+  ));
+

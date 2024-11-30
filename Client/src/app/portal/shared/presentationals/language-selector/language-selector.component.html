@@ -1,0 +1,14 @@
+<mat-menu #languageMenu="matMenu">
+    <button mat-menu-item value="German" (click)="setLanguage('de-CH','German')">German</button>
+    <button mat-menu-item value="English" (click)="setLanguage('en-US','English')">English</button>
+</mat-menu>
+<div class="row">
+    <div class="col-3" style="margin-top: 6px;">
+        <mat-icon>language</mat-icon>
+    </div>
+<div class="col-9" style="padding: 0px;">
+    <button  [matMenuTriggerFor]="languageMenu" style="margin-left: 2px;border: none;background: none !important;" class="languagedisplay">{{selectedLanguage}}</button>
+</div>
+
+</div>
+

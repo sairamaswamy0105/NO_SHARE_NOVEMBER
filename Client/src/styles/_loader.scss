@@ -1,0 +1,94 @@
+@use '@angular/material' as mat;
+
+@mixin loader-theme($theme) {
+    $primary: map-get($theme, primary);
+
+    .hidden {
+        visibility: hidden;
+    }
+
+    .loader-overlay {
+        position: absolute;
+        width: 100%;
+        z-index: 999;
+        top: 0;
+
+        .loader {
+            height: 4px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background-color: #FFF;
+            animation: fadeInLoader 1s ease-in;
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards;
+
+            &:before {
+                display: block;
+                position: absolute;
+                content: "";
+                left: -200px;
+                width: 200px;
+                height: 4px;
+                background-color: mat.m2-get-color-from-palette($primary);
+                animation: loading 2s linear infinite;
+            }
+        }
+
+        @keyframes loading {
+            from {
+                left: -200px;
+                width: 30%;
+            }
+
+            50% {
+                width: 30%;
+            }
+
+            70% {
+                width: 70%;
+            }
+
+            80% {
+                left: 50%;
+            }
+
+            95% {
+                left: 120%;
+            }
+
+            to {
+                left: 100%;
+            }
+        }
+
+        @keyframes fadeInLoader {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    }
+
+    @keyframes fadeInBlocker {
+        0% {
+        }
+
+        100% {
+            background-color: rgba(128, 128, 128, 0.3);
+        }
+    }
+
+    .blocker-overlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        animation: fadeInBlocker 4s ease-in;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+    }
+}

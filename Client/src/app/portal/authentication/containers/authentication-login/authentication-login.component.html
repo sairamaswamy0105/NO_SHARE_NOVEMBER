@@ -1,0 +1,52 @@
+@if(!loggedIn){
+
+    <div class="container d-flex justify-content-center align-items-center h-100">
+        <div class="row">
+        <div class="col-12">
+            <mat-card>
+                <mat-card-header class="mb-3">
+                    <mat-card-title>
+                        <h1>{{'lp_login' | translate}}</h1>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <form method="post" [formGroup]="loginForm" novalidate (ngSubmit)="verifyUserDetailsAfterLoggedIn()">
+                        <div class="row g-3 mb-4">
+                            <div class="col-12">
+                                <mat-form-field appearance="outline" class="w-100" hideRequiredMarker>
+                                    <mat-label >{{'lp_email' | translate}}</mat-label>
+                                    <input matInput formControlName="email">
+                                </mat-form-field>
+                                <div *ngIf="f.email.touched && f.email.invalid" class="error mx-3">
+                                    <small *ngIf="f.email.errors?.required">{{'lp_v_email' | translate}}</small>
+                                    <small *ngIf="f.email.errors?.email">{{'lp_v_emailformat' | translate}}</small>
+                                  </div>
+                            </div>
+                            <div class="col-12">
+                                <mat-form-field appearance="outline" class="w-100" hideRequiredMarker>
+                                    <mat-label>{{'lp_password' | translate}}</mat-label>
+                                    <input matInput type="password" formControlName="password">
+                                </mat-form-field>
+                                <div *ngIf="f.password.touched && f.password.invalid" class="error mx-3">
+                                    <small *ngIf="f.password.errors?.required">{{'lp_v_password' | translate}}</small>
+                                    <small *ngIf="f.password.errors?.minlength">{{'lp_v_format' | translate}}</small>
+                                  </div>
+                            </div>
+                            <div class="col-12">
+                                <a (click)="forgotpage()" class="hyperlink-button">
+                                    {{'lp_forgot' | translate}}
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" mat-raised-button class="w-100" color="primary">
+                                Login
+                            </button>
+                        </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+                    }

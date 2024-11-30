@@ -1,0 +1,58 @@
+<div class="card">
+  <div class="card-header text-center">
+    <h1>{{'ga_header' | translate}}</h1>
+  </div>
+  <div class="card-body">
+    <div class="container">
+      <div class="column left">
+        <div class="step">
+          <h2>{{'ga_1_header' | translate}}</h2>
+          <p>{{'ga_1_body_before' | translate}} <strong>{{'ga_1_body_header' | translate}}</strong> {{'ga_1_body_after' | translate}}</p>
+          <p>
+            {{'ga_1_body_extra' | translate}}
+          </p>
+        </div>
+        <div class="step qr-code">
+          <h2>{{'ga_2_header' | translate}}</h2>
+          <p>{{'ga_2_body_before' | translate}} <strong>{{'ga_2_body_header' | translate}}</strong> {{'ga_2_body_after' | translate}}</p>
+          <img
+            width="200"
+            height="200"
+            [src]="'data:image/png;base64,' + data1"
+            alt="QR Code"
+          />
+        </div>
+      </div>
+
+      <div class="column right">
+        <div class="step">
+          <h2>{{'ga_3_header' | translate}}</h2>
+          <p>
+            {{'ga_3_body_before' | translate}} <strong>{{'ga_3_body_header' | translate}}</strong> {{'ga_3_body_after' | translate}} {{ data2 }}.
+          </p>
+          <p>{{'ga_3_body_extra' | translate}}</p>
+        </div>
+        <div class="step">
+          <h2>{{'ga_4_header' | translate}}</h2>
+          <p>{{'ga_4_body_text' | translate}}</p>
+          <form class="auth-form">
+            <label for="code" class="form-label">{{'ga_input_header' | translate}}</label>
+            <input
+              type="text"
+              id="code"
+              name="code"
+              class="form-input"
+              placeholder="{{'ga_input_placeholder' | translate}}"
+              [(ngModel)]="code"
+              required
+            />
+            <button class="btn-submit" type="submit" (click)="verifyCode()">{{'ga_input_button' | translate}}</button>
+            <div *ngIf="serverError" class="error-message">
+              {{'ga_input_error'| translate}}
+            </div>
+          </form>          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

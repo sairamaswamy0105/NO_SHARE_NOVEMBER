@@ -1,0 +1,36 @@
+<div class="d-flex flex-column h-100">
+  <mat-toolbar class="mat-toolbar d-flex align-items-center mainheader">
+    <a href="/">
+      <img src="images/logo.svg" class="toolbar-logo" />
+      <span class="d-none d-md-inline-block">Shab</span>
+    </a>
+    <div class="flex-fill"></div>
+    @if( router!="/" && router!="/forgot/password" && router!="/auth/2faauth" && router!="/auth/verifier" && router!="/set/password"  && userName )
+    {
+      <mat-menu #userMenu="matMenu" xPosition="before">
+        <button mat-menu-item>Edit Profle</button>
+        <button mat-menu-item (click)="logoutUser()">Logout</button>
+    </mat-menu>
+    <div class="row">
+        <div class="col-1" style="margin-top: 6px;">
+            <mat-icon>person</mat-icon>
+        </div>
+    <div class="col-11" style="padding: 0px;">
+    
+        <button mat-flat-button class="usernamedisplay"  [matMenuTriggerFor]="userMenu" style="border: none;background: none;">{{'nb_welcome' | translate}} {{userName}}</button>
+    </div>
+    
+    </div>
+    }
+
+
+    <app-language-selector class="d-none d-md-block me-2"></app-language-selector>
+    <app-dark-mode-slider class="d-none d-md-block me-2"></app-dark-mode-slider>
+  </mat-toolbar>
+  <mat-sidenav-container autosize class="flex-fill">
+   
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

@@ -1,0 +1,29 @@
+<mat-sidenav-container >
+<mat-sidenav opened mode="side" #sidenav>
+    <mat-list>
+        <mat-list-item mat-button color="warn" style="width: 100%;
+    margin: 10px 0px;"  (click)="NavigateToPage(listItems[0])">
+    <div class="row">
+        <div class="col-3"><mat-icon style="font-size: 26px;">account_box</mat-icon></div>
+        <div class="col-9" style="font-size: 21px;">{{ 'sb_bexio' |translate    }}</div>
+    </div>
+</mat-list-item>
+@if(userRole=="Admin")
+{
+
+    <mat-list-item mat-button color="warn" style=" width: 100%;
+    margin: 10px 0px;"    (click)="NavigateToPage(listItems[1])">
+    <div class="row">
+        <div class="col-3"><mat-icon style="font-size: 26px;">account_box</mat-icon></div>
+        <div class="col-9" style="font-size: 21px;">{{ 'sb_user' |translate    }}</div>
+    </div>
+    
+</mat-list-item>
+}
+      </mat-list>
+</mat-sidenav>
+<mat-sidenav-content >
+    <button class="buttontoggler" (click)="sidenav.toggle()" style="border: none;"><mat-icon>menu</mat-icon> </button>
+    <router-outlet></router-outlet>
+</mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,83 @@
+.grid-table-container {
+    overflow: hidden;
+  }
+  
+  table.grid-table,
+  mat-accordion.grid-table {
+    width: 100%;
+    table-layout: fixed;
+  
+    >thead>tr>th,
+    >tbody>tr>td {
+      width: auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  
+    .mat-sort-header {
+      overflow: hidden;
+      white-space: nowrap;
+  
+      .mat-sort-header-content {
+        width: auto;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  
+    .filter-header {
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+  
+      >div,
+      >span {
+        width: auto;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  
+    .header {
+      width: auto;
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  
+    .mat-column-actions {
+      width: 50px;
+      padding: 0 !important;
+    }
+  
+    .header-filter-active {
+      opacity: 1 !important;
+      color: var(--mat-sort-arrow-color);
+    }
+  }
+  
+  app-date-time-filter,
+  app-string-filter,
+  app-number-filter,
+  app-bool-filter,
+  app-guid-filter,
+  app-guid-list-filter,
+  app-enum-filter {
+    opacity: 0.54;
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  .filter-header:not(:hover) app-date-time-filter:not(.header-filter-active),
+  .filter-header:not(:hover) app-string-filter:not(.header-filter-active),
+  .filter-header:not(:hover) app-number-filter:not(.header-filter-active),
+  .filter-header:not(:hover) app-bool-filter:not(.header-filter-active),
+  .filter-header:not(:hover) app-guid-filter:not(.header-filter-active),
+  .filter-header:not(:hover) app-guid-list-filter:not(.header-filter-active),
+  .filter-header:not(:hover) app-enum-filter:not(.header-filter-active) {
+    opacity: 0;
+  }

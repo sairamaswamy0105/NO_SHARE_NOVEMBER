@@ -1,0 +1,16 @@
+<form class="auth-form">
+  <label for="code" class="form-label">{{'ga_input_header'| translate}}</label>
+  <input
+    type="text"
+    id="code"
+    name="code"
+    class="form-input"
+    placeholder="{{'ga_input_placeholder'| translate}}"
+    [(ngModel)]="code"
+    required
+  />
+  <button class="btn-submit" type="submit" (click)="verifyCode()">{{'ga_input_button'| translate}}</button>
+  <div *ngIf="serverError" class="error-message">
+    {{'ga_input_error'| translate}}
+  </div>
+</form>

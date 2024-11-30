@@ -1,0 +1,47 @@
+<div class="card">
+    <!-- Card Header with Title and Button -->
+    <div class="card-header">
+      <div class="header-card">
+        <h2 class="header-title">{{'bt_header' | translate}}</h2>
+      </div>
+  
+     <mat-form-field appearance="outline" class="mx-4">
+      <mat-label>{{'bt_search' | translate}}</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Filter" />
+     </mat-form-field>
+    </div>
+  
+    <!-- Card Body with Table -->
+    <div class="card-body">
+      <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+        <!-- Full Name Column-->
+        <ng-container matColumnDef="name_1">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'bt_name' | translate}} </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name_1}} {{element.name_2}} </mat-cell>
+        </ng-container>
+  
+        <!-- Address Column-->
+        <ng-container matColumnDef="address">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'bt_address' | translate}} </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.address}} </mat-cell>
+        </ng-container>
+  
+        <!-- Email Column-->
+        <ng-container matColumnDef="mail">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'bt_email' | translate}} </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.mail}} </mat-cell>
+        </ng-container>
+  
+        <!-- Phone Number Column-->
+        <ng-container matColumnDef="phone_mobile">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> {{'bt_phone' | translate}} </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.phone_mobile}} </mat-cell>
+        </ng-container>
+  
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+  

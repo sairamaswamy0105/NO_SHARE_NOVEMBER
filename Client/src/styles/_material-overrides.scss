@@ -1,0 +1,21 @@
+// Style for the dialog to have actions on one line with content
+mat-dialog-actions {
+    padding: 8px 24px 24px 24px !important;
+}
+
+// Use more space between buttons in dialogs (1rem equals me-3)
+.mat-mdc-dialog-actions .mat-button-base+.mat-button-base, .mat-mdc-dialog-actions .mat-mdc-button-base+.mat-mdc-button-base {
+    margin-left: 1rem !important;
+}
+
+// Use same style for the dialog content
+.mat-mdc-dialog-container .mdc-dialog__content {
+    color: inherit !important;
+}
+    
+.mat-mdc-dialog-container .mdc-dialog__content {
+    line-height: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    letter-spacing: inherit !important;
+}

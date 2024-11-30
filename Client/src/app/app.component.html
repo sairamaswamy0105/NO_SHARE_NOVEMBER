@@ -1,0 +1,13 @@
+<div class="completebody">
+
+  <div *ngIf="translationService.isLoaded | async; else loading">
+    <!-- Your application content goes here -->
+    <router-outlet></router-outlet>
+  </div>
+  <ng-template #loading>
+    <!-- Display a loading spinner or message -->
+    <div class="loading">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+</div>

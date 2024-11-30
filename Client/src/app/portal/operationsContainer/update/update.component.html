@@ -1,0 +1,140 @@
+<div class="container" style="width:auto; margin-top:5px;">
+
+    <div class="card" style="margin-top:10px;">
+        <div class="card-header text-center bg-secondary" style="padding:20px; font-size: 32px;">
+            {{'cu_uheader' | translate}}
+        </div>
+        <div class="image" style="position: absolute;
+        top: -25px;
+        right: 1px;
+        background: black;
+        border: 5px solid black;">
+            <img *ngIf="updateUserData.value.userImage" [src]="'data:image/png;base64,' + updateUserData.value.userImage" alt="Uploaded Image" width="100" height="100"  style="border-radius: 18%;" />
+        </div>
+        <div class="card-body">
+            <form method="post" #userForm="ngForm" [formGroup]="updateUserData" novalidate
+                (ngSubmit)="updateUser(userForm.value)">
+                <div class="row">
+                    <div class="mb-3 col-lg-6 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{'cu_first' | translate}}</mat-label>
+                            <input matInput formControlName="firstName">
+                            <mat-error *ngIf="f['firstName'].touched && f['firstName'].invalid">
+                                <small *ngIf="f['firstName'].errors?.['required']">{{'cu_v_first' | translate}}</small>
+                              </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="mb-3 col-lg-6 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{'cu_last' | translate}}</mat-label>
+                            <input matInput formControlName="lastName">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-lg-6 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{'cu_street' | translate}}</mat-label>
+                            <input matInput formControlName="street">
+                            <mat-error *ngIf="f['street'].touched && f['street'].invalid">
+                                <small *ngIf="f['street'].errors?.['required']">{{'cu_v_street' | translate}}</small>
+                              </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="mb-3 col-lg-6 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{'cu_city' | translate}}</mat-label>
+                            <input matInput formControlName="city">
+                            <mat-error *ngIf="f['city'].touched && f['city'].invalid">
+                                <small *ngIf="f['city'].errors?.['required']">{{'cu_v_city' | translate}}</small>
+                            </mat-error>                             
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="mb-3 col-lg-6 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{'cu_pincode' | translate}}</mat-label>
+                            <input matInput formControlName="pincode">
+                            <mat-error *ngIf="f['pincode'].touched && f['pincode'].invalid">
+                                <small *ngIf="f['pincode'].errors?.['required']">{{'cu_v_pincode' | translate}}</small>
+                            </mat-error>                            
+                        </mat-form-field>
+                    </div>
+                    <div class="mb-3 col-lg-6 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{'cu_phone' | translate}}</mat-label>
+                            <input matInput formControlName="phone_Number">
+                            <mat-error *ngIf="f['phone_Number'].touched && f['phone_Number'].invalid">
+                                <small *ngIf="f['phone_Number'].errors?.['required']">{{'cu_v_phone' | translate}}</small>
+                                <small *ngIf="f['phone_Number'].errors?.['pattern']">{{'cu_v_phonepattern' | translate}}</small>
+                            </mat-error>                            
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-lg-6 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{'cu_email' | translate}}</mat-label>
+                            <input matInput formControlName="mail">
+                            <mat-error *ngIf="f['mail'].touched && f['mail'].invalid">
+                                <small *ngIf="f['mail'].errors?.['required']">{{'cu_v_mail' | translate}}</small>
+                                <small *ngIf="f['mail'].errors?.['email']">{{'cu_v_mailformat' | translate}}</small>
+                            </mat-error>                            
+                        </mat-form-field>
+                    </div>
+                    <div class="mb-3 col-lg-6 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{'cu_dob' | translate}}</mat-label>
+                            <input matInput [matDatepicker]="myDatePicker" formControlName="dateOfBirth">
+                             <mat-datepicker-toggle matSuffix [for]="myDatePicker" ></mat-datepicker-toggle>
+                             <mat-datepicker #myDatePicker></mat-datepicker>
+                            <mat-error *ngIf="f['dateOfBirth'].touched && f['dateOfBirth'].invalid">
+                                <small *ngIf="f['dateOfBirth'].errors?.['required']">{{'cu_v_dob' | translate}}</small>
+                            </mat-error>                            
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-lg-6 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{'cu_role' | translate}} </mat-label>
+                            <mat-select formControlName="roleId">
+                                <mat-option [value]="1">Admin</mat-option>
+                                <mat-option [value]="2">User</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="mb-3 col-lg-6 col-sm-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{'cu_language' | translate}}</mat-label>
+                            <mat-select formControlName="language">
+                                <mat-option value="de-CH">German</mat-option>
+                                <mat-option value="en-US">English</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-lg-6 col-sm-12">
+                      <mat-label class="mx-2">{{'cu_image' | translate}}</mat-label>
+                      <input type="file" (change)="onFileSelected($event)">
+                    </div>
+                  </div>
+                <div class="row">
+                    <div class="mb-3 col-lg-6 col-sm-12">
+                            <button type="submit" class="btn btn-primary" style="width: -webkit-fill-available;">{{'cu_update' | translate}}</button>
+                    </div>
+                    <div class="mb-3 col-lg-6 col-sm-12">
+                            <a asp-controller="User" asp-action="Index" class="btn btn-primary" style="width: -webkit-fill-available;"
+                            (click)="backToUser()">{{'cu_back' | translate}}</a>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

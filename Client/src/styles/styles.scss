@@ -1,0 +1,190 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+// Plus imports for other components in your app.
+@import "material";
+@import "loader";
+@import "grid-table";
+@import "bootstrap";
+@import "material-overrides";
+@import "roboto-font";
+@import "materialicons-font";
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+@include mat.all-component-themes($custom-light-theme);
+@include mat.all-component-typographies($custom-light-theme);
+@include loader-theme($custom-light-theme);
+
+
+html,
+body {
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+.line-breaks {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.hyperlink-button {
+  font-weight: 500;
+  color: mat.m2-get-color-from-palette($custom-primary-palette);
+  cursor: pointer;
+  text-decoration: none;
+
+  &:visited {
+    color: mat.m2-get-color-from-palette($custom-primary-palette);
+  }
+
+  &:hover {
+    color: mat.get-theme-color($custom-light-theme, foreground, text) !important;
+  }
+}
+
+// Prevent scroll bar when components inside mat-dialogs that contain gutters
+.dialog-content-fix {
+  display: block;
+}
+
+// Allow linebreaks in form field errors
+.mat-mdc-form-field-error {
+  display: block;
+  white-space: pre-wrap;
+}
+
+
+.mat-mdc-form-field-bottom-align{
+height: 0px !important;
+}
+
+.mdc-text-field--outlined
+{
+  margin: 9px !important;
+}
+
+/* styles.css or styles.scss */
+.custom-color-snackbar {
+  background-color: #4caf50 !important; /* Example: Green background */
+  color: white !important; /* Text color */
+  font-size: 16px; /* Adjust font size if needed */
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.5em;
+  color: #555;
+}
+
+
+ 
+html,
+body {
+  height: 100%;
+}
+ 
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5; // Light background for default mode
+  color: #333;
+ 
+  &.dark-mode {
+    background-color: #333; // Dark background for dark mode
+    color: #e0e0e0;
+    @include mat.all-component-colors($custom-dark-theme);
+ 
+    .hyperlink-button {
+      &:hover {
+        color: mat.get-theme-color($custom-dark-theme, foreground, text) !important;
+      }
+    }
+    .card-header{
+      background-color: rgb(52, 43, 43); // Dark background for dark mode
+      color: #e0e0e0;
+    }
+    .buttontoggler{
+      background-color: black !important; // Dark background for dark mode
+      color: #e0e0e0 !important;
+    }
+    .usernamedisplay{
+      color:  #e0e0e0 !important;
+    }
+    .languagedisplay{
+      color:  #e0e0e0 !important;
+    }
+    .card-body{
+      background-color: #333 !important;
+      color:  #e0e0e0 !important;
+    }
+  }
+}
+ 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+ 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ 
+a:visited {
+  color: inherit;
+}
+ 
+.line-breaks {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+ 
+.hyperlink-button {
+  font-weight: 500;
+  color: mat.m2-get-color-from-palette($custom-primary-palette);
+  cursor: pointer;
+  text-decoration: none;
+ 
+  &:visited {
+    color: mat.m2-get-color-from-palette($custom-primary-palette);
+  }
+ 
+  &:hover {
+    color: mat.get-theme-color($custom-light-theme, foreground, text) !important;
+  }
+}
+ 
+// Prevent scroll bar when components inside mat-dialogs that contain gutters
+.dialog-content-fix {
+  display: block;
+}
+ 
+// Allow linebreaks in form field errors
+.mat-mdc-form-field-error {
+  display: block;
+  white-space: pre-wrap;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
